@@ -33,7 +33,7 @@ router.post("/register", (req, res) => {
                   data: undefined,
                 });
               return res.status(200).json({
-                status: false,
+                status: true,
                 message: "Register successfully!",
                 data: doc,
               });
@@ -89,11 +89,12 @@ router.post("/login", (req, res) => {
               data: {
                 token,
                 register,
+                jabatan: register.jabatan,
               },
             });
           }
           return res.status(401).json({
-            status: true,
+            status: false,
             message: "Wrong password, login failed",
           });
         }
